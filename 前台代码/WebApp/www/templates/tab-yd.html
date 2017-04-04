@@ -1,0 +1,47 @@
+<!--科技频道-->
+<ion-header-bar align-title="left" class="dark row" id="top-nav">
+		<div class="buttons col-10">
+			<div  ng-controller="bac" class="ion-android-arrow-back goback" ng-click="gou()"></div>
+		</div>
+		<div class="col tit">
+			科技频道
+		</div>
+		<div class="buttons col-10" >
+			<a class="ion-search" href="#/tab/search"></a>
+		</div>
+</ion-header-bar>
+
+<ion-content ng-controller="yd">
+	<ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+	<!--第一张大图-->
+	<div class="banner">
+		<img src="img/top-01.jpg" width="100%" height="100%" />
+	</div>
+	<!--文章列表-->
+	<div class="con" id="yd" data-title ="科技频道">
+		<div class="list" ng-repeat="x in list">
+			<a href="#/tab/Details?id={{x._id}}">
+				<div class="author">
+					<img style="vertical-align: middle;" class="au-img" width="15px" height="15px" src="img/tx.jpg" />
+					<span style="vertical-align: middle; color: #BBBBBB; padding-left: 5px;">Bao_</span>
+				</div>
+				<div class="row list-con">
+					<div class="col" style="padding-right: 20px;"><img src='{{x.goodImage[0]}}' width="150px" height="111px" /></div>
+					<div class="col list-title">{{x.title}}</div>
+				</div>
+				<div class="list-info">
+					<div class="fl sp"><span>5</span>小时前</div>
+					<div class="fr">
+						<span class="ion-heart sp"></span>
+						<span class="sp">2</span>
+						<span class="ion-chatbubble-working sp"></span>
+						<span class="sp">8</span>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</a>
+		</div>
+
+	</div>
+</ion-content>
+<div ng-controller="bac" class="ion-android-arrow-back goback" ng-click="gou()"></div>

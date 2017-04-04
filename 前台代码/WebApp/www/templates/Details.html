@@ -1,0 +1,28 @@
+<!--文章详情-->
+<ion-header-bar align-title="left" class="dark row" id="top-nav">
+		<div class="buttons col-10">
+			<div  ng-controller="bac" class="ion-android-arrow-back goback" ng-click="gou()"></div>
+		</div>
+		<div class="col tit">
+			BLOG
+		</div>
+		<div class="buttons col-10" >
+			<a class="ion-search" href="#/tab/search"></a>
+		</div>
+</ion-header-bar>
+<ion-content >
+<div class="Details" ng-controller="controlName">
+			<div class="ttt">
+				<img src="{{det.goodImage[0]}}" width="100%" height="100%" />
+				<div class="author">
+					<img style="vertical-align: middle;" class="au-img" width="25px" height="25px" src="img/t-img.jpg" />
+					<span style="vertical-align: middle; color: #BBBBBB; padding-left: 5px;">Bao_</span>
+					<span class="update">{{det.update}}</span>
+				</div>
+			</div>
+			<div class="ccc">
+				<div class="d-title">{{det.title}}</div>
+				<div class="info" ng-bind-html="det.goodsInfo"></div>
+			</div>
+</div>
+</ion-content>

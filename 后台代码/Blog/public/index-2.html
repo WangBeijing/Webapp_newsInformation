@@ -1,0 +1,72 @@
+<!DOCTYPE html >
+<html ng-app="Info">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/reset.css" />
+		<link rel="stylesheet" type="text/css" href="stylesheets/index-1.css" />
+		<link rel="stylesheet" type="text/css" href="stylesheets/wangEditor.min.css" />
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<!--左侧导航-->
+			<div class="navbar">
+				<div class="logo"><img src="img/profile.png" width="25px" height="25px" /><span style="margin-left: 6px;">BLOG</span></div>
+				<ul class="nav">
+					<li>
+						<a href="index-1.html"><img src="img/form.png" width="20px" height="20px" /><span style="margin-left: 6px;">文章发表</span></a>
+					</li>
+					<li>
+						<a href="index-2.html"><img src="img/edit.png" width="20px" height="20px" /><span style="margin-left: 6px;">文章管理</span></a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="con list-con">
+				<div style="padding-left: 40px; padding-bottom: 15px; padding-top: 20px; background-color: white;" class="top-title"><img class="midd" src="img/form-l.png" /><span class="midd" style="margin-left: 10px; font-size: 20px; font-weight: bold;">文章管理</span></div>
+				<div class="content" style="padding-left: 40px;" ng-controller="control">
+					<div class="clearfix list" ng-repeat="x in list">
+						<img class="fl" src="{{x.goodImage[0]}}" width="50px" height="50px" />
+						<div class="fl list-t">
+							<div class="list-title">{{x.title}}</div>
+							<div class="list-TAG">TAG：{{x.TAG}}</div>
+						</div>
+						<div class="fl clfy">{{x.classify}}</div>
+						<div class="fl list-time" style="height: 50px; line-height: 50px;">{{x.update}}</div>
+						<div class="caozuo fl">
+							<a href="compile.html#?id={{x._id}}"><img src="img/bj.png" /></a>
+							<img src="img/sc.png" ng-click="toggle()" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="javascripts/angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="javascripts/index-1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var Info = angular.module('Info', []);
+			Info.controller('control', //控制
+				function($scope, $http) {
+					$http.get("/da").success(function(data) {
+						console.log(data)
+						$scope.list = data;
+						$scope.toggle = function() { //click事件
+							console.log(this.x._id) //商品obj id
+							$http.post('/dele?id=' + this.x._id, {
+
+							}).success(function(data) {
+								console.log(data)
+								if (data.status) {
+									alert(data.message)
+									  window.location.reload();
+								}
+							});
+						}
+					})
+				})
+		</script>
+	</body>
+
+</html>

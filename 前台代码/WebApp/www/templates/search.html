@@ -1,0 +1,26 @@
+<!--搜索-->
+<ion-modal-view id="x" >
+	<ion-content class="padding" id="se">
+		<div class="but col">
+				<div class="ion-close-circled" ng-controller="bac" id="ca-bt" ng-click="gou()"></div>
+			</div>
+		<div class="serch-title row" style="padding: 0;" >
+			<div class="ser-input col-80">
+				<div class="ion-search"></div>
+				<input type="text" placeholder="请输入关键字" name="" id="" value="" ng-model="cs"/>
+			</div>
+			<a ng-href="#/tab/sl?TAG={{cs}}" class="buttons col sea">
+				<div>搜索</div>
+			</a>
+		</div>
+		<div class="rsc">热搜词</div>
+		<div class="rsc-con" style="padding-top: 10px;">
+			<div class="rsc-btn fl">热搜词</div>
+			<div class="rsc-btn fl">热搜词</div>
+			<div class="rsc-btn fl">热搜词</div>
+			<div class="rsc-btn fl">热搜词</div>
+			<div class="rsc-btn fl">热搜词</div>
+			<div class="clear"></div>
+		</div>
+	</ion-content>
+</ion-modal-view>

@@ -1,0 +1,88 @@
+<!DOCTYPE html >
+<html ng-app="UserInfoModule">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/reset.css" />
+		<link rel="stylesheet" type="text/css" href="stylesheets/index-1.css" />
+		<link rel="stylesheet" type="text/css" href="stylesheets/wangEditor.min.css"/>
+	</head>
+	<body>
+		<div id="wrapper">
+			<!--左侧导航-->
+			<div class="navbar">
+				<div class="logo"><img src="img/profile.png" width="25px" height="25px" /><span style="margin-left: 6px;">BLOG</span></div>
+				<ul class="nav">
+					<li><a href="index-1.html"><img src="img/form.png" width="20px" height="20px" /><span style="margin-left: 6px;">文章发表</span></a></li>
+					<li><a href="index-2.html"><img src="img/edit.png" width="20px" height="20px" /><span style="margin-left: 6px;">文章管理</span></a></li>
+				</ul>
+			</div>
+			<div class="con">
+				<div style="padding-left: 40px; padding-bottom: 15px; padding-top: 20px; background-color: white;" class="top-title"><img class="midd" src="img/form-l.png" /><span class="midd" style="margin-left: 10px; font-size: 20px; font-weight: bold;">文章发表</span></div>
+				<div class="content" style="padding-left: 40px;" ng-controller="controlName">
+					<!--文章标题-->
+					<div class="con-title nn">
+						<label class="lab">标题：</label>
+						<input type="text" name="" class="inp" placeholder="请输入标题" ng-model="form.title">
+					</div>
+					<!--文章分类-->
+					<div class="con-classify nn">
+						<label class="lab">分类：</label>
+						<select class="classify" name="" ng-model="form.classify">
+							<option>新闻资讯</option>
+							<option>科技频道</option>
+							<option>前端知识</option>
+							<option>精彩文章</option>
+						</select>
+					</div>
+					<!--文章TAG-->
+					<div class="con-TAG nn">
+						<label class="lab">TAG：</label>
+						<select class="TAG" name="" ng-model="form.TAG">
+							<option>新闻资讯</option>
+							<option>科技频道</option>
+							<option>前端知识</option>
+							<option>精彩文章</option>
+						</select>
+					</div>
+					<!--图片上传-->
+					<div class="con-img-up clearfix nn">
+						<label class="lab fl">图片：</label>
+						<div class="img-up fl">
+							<div id="preview" class="clearfix">
+								<div class="spin" ng-repeat="x in form.goodImage">
+									<img ng-src="{{x}}" />
+								</div>
+							</div>
+							<div>
+								<div id="file-box">
+									<input type="file" id="file" value="图片上传" multiple="multiple" accept="image/*" file-model="images" onchange="angular.element(this).scope().img_upload(this.files)" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--内容-->
+					<div class="con-nr clearfix nn">
+						<label class="lab fl">内容：</label>
+						<div class="nr fl">
+							<div ng-model="form.goodsInfo" contenteditable="true"></div>
+						</div>
+					</div>
+					<!--按钮-->
+					<button id="bbb" class="btn btn-large btn-success" type="button" ng-click="submit_form()">保存</button>
+				</div>
+
+			</div>
+			<div class="height" style="height: 100px;"></div>
+				
+			
+
+		</div>
+		<script src="javascripts/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="javascripts/wangEditor.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="javascripts/angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="javascripts/index-1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="javascripts/compile.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>
